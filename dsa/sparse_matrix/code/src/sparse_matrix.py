@@ -42,6 +42,26 @@ class SparseMatrix:
 
         return result
 
+    def subtract(self, other):
+        """
+        Subtract two matrices
+        """
+        # Check if the matrices have the same dimensions
+        if self.num_rows != other.num_rows or self.num_cols != other.num_cols:
+            raise ValueError("Matrices dimensions do not match for subtraction")
+        
+        # Create a new matrix to store the result
+        result = SparseMatrix(num_rows=self.num_rows, num_cols=self.num_cols)
+
+        # Copy the elements of the first matrix to the result
+        result.elements = self.elements.copy()
+        for (row, col), value in other.elements.items():
+            # Subtract values located at the same row and column
+            new_value = result.get_element(row, col) - value
+            # Set the new value in the result matrix
+            result.set_element(row, col, new_value)
+        return result
+
     def load_matrix(self, matrix_file_path):
         """
         Load the matrix from a file
