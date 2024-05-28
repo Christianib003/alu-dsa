@@ -38,6 +38,8 @@ class SparseMatrix:
                         # Parse the line to get the row, column and value
                         row, col, value = map(int, line.strip('()').split(','))
                         # Store the value in the elements dictionary
+                        # format: {(row, col): value}
                         self.elements[(row, col)] = value
+                return self.elements
         except ValueError as e:
             raise ValueError("Input file has wrong format") from e
