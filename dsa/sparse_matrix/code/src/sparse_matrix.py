@@ -49,3 +49,12 @@ class SparseMatrix:
         Get the element at the given row and column
         """
         return self.elements.get((curr_row, curr_col), 0)
+
+    def set_element(self, curr_row, curr_col, value):
+        """
+        Set the element at the given row and column
+        """
+        if value != 0:
+            self.elements[(curr_row, curr_col)] = value
+        elif (curr_row, curr_col) in self.elements:
+            del self.elements[(curr_row, curr_col)]
