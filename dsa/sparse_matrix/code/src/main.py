@@ -12,4 +12,6 @@ def main():
     """
     Main function
     """
-    base_path = '../../sample_inputs/'
+    base_path = 'dsa/sparse_matrix/sample_inputs/'
+    matrix1_file_path = os.path.join(base_path, 'matrix1.txt')
+    matrix2_file_path = os.path.join(base_path, 'matrix2.txt')
