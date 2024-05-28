@@ -18,7 +18,7 @@ class SparseMatrix:
         self.elements = {}
         if matrix_file_path:
             self.load_matrix(matrix_file_path)
-    
+
     def add(self, other):
         """
         Add two matrices
