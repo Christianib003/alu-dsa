@@ -43,3 +43,9 @@ class SparseMatrix:
                 return self.elements
         except ValueError as e:
             raise ValueError("Input file has wrong format") from e
+
+    def get_element(self, curr_row, curr_col):
+        """
+        Get the element at the given row and column
+        """
+        return self.elements.get((curr_row, curr_col), 0)
