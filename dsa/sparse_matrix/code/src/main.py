@@ -9,4 +9,7 @@ from sparse_matrix import SparseMatrix
 
 
 def main():
-    pass
+    """
+    Main function
+    """
+    base_path = '../../sample_inputs/'
