@@ -27,7 +27,7 @@ class SparseMatrix:
             with open(matrix_file_path, 'r', encoding='utf-8') as file:
                 lines = file.readlines()
 
-                # Read the first two lines to get the number of rows and columns
+                # Read the first 2 lines to get the number of rows and columns
                 self.num_rows = int(lines[0].split('=')[1].strip())
                 self.num_cols = int(lines[1].split('=')[1].strip())
 
