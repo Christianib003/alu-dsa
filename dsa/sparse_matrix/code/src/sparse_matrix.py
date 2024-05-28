@@ -22,12 +22,6 @@ class SparseMatrix:
     def load_matrix(self, matrix_file_path):
         """
         Load the matrix from a file
-
-        Args:
-            matrix_file_path: (_type_): _description_
-
-        Raises:
-            ValueError: Raise an error if the input file has wrong format
         """
         try:
             with open(matrix_file_path, 'r', encoding='utf-8') as file:
