@@ -18,6 +18,19 @@ class SparseMatrix:
         self.elements = {}
         if matrix_file_path:
             self.load_matrix(matrix_file_path)
+    
+    def add(self, other):
+        """
+        Add two matrices
+        """
+        if self.num_rows != other.num_rows or self.num_cols != other.num_cols:
+            raise ValueError("Matrices dimensions do not match for addition")
+        result = SparseMatrix(num_rows=self.num_rows, num_cols=self.num_cols)
+        result.elements = self.elements.copy()
+        for (row, col), value in other.elements.items():
+            new_value = result.get_element(row, col) + value
+            result.set_element(row, col, new_value)
+        return result
 
     def load_matrix(self, matrix_file_path):
         """
