@@ -15,3 +15,8 @@ def main():
     base_path = 'dsa/sparse_matrix/sample_inputs/'
     matrix1_file_path = os.path.join(base_path, 'matrix1.txt')
     matrix2_file_path = os.path.join(base_path, 'matrix2.txt')
+
+    matrix1 = SparseMatrix(matrix1_file_path)
+    print(matrix1.load_matrix(matrix1_file_path))
+
+main()
