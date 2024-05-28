@@ -2,3 +2,7 @@
 """
 A module to call the SparseMatrix class
 """
+
+import os
+
+from sparse_matrix import SparseMatrix
