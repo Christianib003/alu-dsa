@@ -17,6 +17,10 @@ def main():
     matrix2_file_path = os.path.join(base_path, 'matrix2.txt')
 
     matrix1 = SparseMatrix(matrix1_file_path)
-    print(matrix1.load_matrix(matrix1_file_path))
+    matrix2 = SparseMatrix(matrix2_file_path)
+
+    result_add = matrix1.add(matrix2)
+
+    print(result_add)
 
 main()

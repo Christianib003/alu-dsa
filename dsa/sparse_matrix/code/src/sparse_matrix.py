@@ -81,3 +81,6 @@ class SparseMatrix:
             self.elements[(curr_row, curr_col)] = value
         elif (curr_row, curr_col) in self.elements:
             del self.elements[(curr_row, curr_col)]
+
+    def __str__(self):
+        return f"rows={self.num_rows}\ncols={self.num_cols}\n(elements={self.elements})"
