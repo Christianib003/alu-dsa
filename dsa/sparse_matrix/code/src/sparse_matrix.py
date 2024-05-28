@@ -67,6 +67,16 @@ class SparseMatrix:
         except ValueError as e:
             raise ValueError("Input file has wrong format") from e
 
+    def save_result(self, result_file_path):
+        """
+        Save the result matrix operation to a file
+        """
+        with open(result_file_path, 'w', encoding='utf-8') as file:
+            file.write(f"rows={self.num_rows}\n")
+            file.write(f"cols={self.num_cols}\n")
+            for (row, col), value in self.elements.items():
+                file.write(f"({row}, {col}, {value})\n")
+
     def get_element(self, curr_row, curr_col):
         """
         Get the element at the given row and column

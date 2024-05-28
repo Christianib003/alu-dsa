@@ -12,14 +12,16 @@ def main():
     """
     Main function
     """
-    base_path = 'dsa/sparse_matrix/sample_inputs/'
-    matrix1_file_path = os.path.join(base_path, 'matrix1.txt')
-    matrix2_file_path = os.path.join(base_path, 'matrix2.txt')
+    input_base_path = 'dsa/sparse_matrix/sample_inputs/'
+    matrix1_file_path = os.path.join(input_base_path, 'matrix1.txt')
+    matrix2_file_path = os.path.join(input_base_path, 'matrix2.txt')
 
     matrix1 = SparseMatrix(matrix1_file_path)
     matrix2 = SparseMatrix(matrix2_file_path)
-
     result_add = matrix1.add(matrix2)
+
+    output_path = 'dsa/sparse_matrix/sample_outputs/result.txt'
+    result_add.save_result(output_path)
 
     print(result_add)
 
