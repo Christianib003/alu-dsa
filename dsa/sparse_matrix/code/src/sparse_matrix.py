@@ -26,12 +26,18 @@ class SparseMatrix:
         try:
             with open(matrix_file_path, 'r', encoding='utf-8') as file:
                 lines = file.readlines()
+
+                # Read the first two lines to get the number of rows and columns
                 self.num_rows = int(lines[0].split('=')[1].strip())
                 self.num_cols = int(lines[1].split('=')[1].strip())
+
+                # Read the rest of the lines to get the elements
                 for line in lines[2:]:
                     line = line.strip()
                     if line:
+                        # Parse the line to get the row, column and value
                         row, col, value = map(int, line.strip('()').split(','))
+                        # Store the value in the elements dictionary
                         self.elements[(row, col)] = value
         except ValueError as e:
             raise ValueError("Input file has wrong format") from e
