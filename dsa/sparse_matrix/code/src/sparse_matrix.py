@@ -49,7 +49,7 @@ class SparseMatrix:
         # Check if the matrices have the same dimensions
         if self.num_rows != other.num_rows or self.num_cols != other.num_cols:
             raise ValueError("Matrices dimensions do not match for subtraction")
-        
+
         # Create a new matrix to store the result
         result = SparseMatrix(num_rows=self.num_rows, num_cols=self.num_cols)
 
@@ -60,6 +60,24 @@ class SparseMatrix:
             new_value = result.get_element(row, col) - value
             # Set the new value in the result matrix
             result.set_element(row, col, new_value)
+        return result
+
+    def multiply(self, other):
+        """
+        Multiply two matrices
+        """
+        # Check if the matrices have the same dimensions
+        if self.num_cols != other.num_rows:
+            raise ValueError("Matrices dimensions do not match for multiplication")
+ 
+        # Create a new matrix to store the result
+        result = SparseMatrix(num_rows=self.num_rows, num_cols=other.num_cols)
+
+        # Multiply the matrices
+        for (row1, col1), value1 in self.elements.items():
+            for (row2, col2), value2 in other.elements.items():
+                if col1 == row2:
+                    result.set_element(row1, col2, result.get_element(row1, col2) + value1 * value2)
         return result
 
     def load_matrix(self, matrix_file_path):
